@@ -1,9 +1,9 @@
-Responsive Snake
-================
+Ray Casting Experiment
+=======================
 
 Description
 -----------
 
-Responsive snake game using canvas.
+Ray casting experiment.
 
-http://snakee.herokuapp.com
+http://ray-casting.herokuapp.com

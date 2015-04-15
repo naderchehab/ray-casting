@@ -5,7 +5,7 @@
 var ray = (function () {
 
     var score = 0
-        , dude = {
+        , player = {
             location: {x: 30, y: 30}
             , direction: {x: 1, y: 0}
             , step: 2
@@ -17,10 +17,10 @@ var ray = (function () {
      */
     function init() {
         input.init();
-        window.addEventListener('key-up', function() { dude.location.y -= dude.step });
-        window.addEventListener('key-down', function() { dude.location.y += dude.step });
-        window.addEventListener('key-left', function() { dude.location.x -= dude.step });
-        window.addEventListener('key-right', function() { dude.location.x += dude.step });
+        window.addEventListener('key-up', function() { player.location.y -= player.step });
+        window.addEventListener('key-down', function() { player.location.y += player.step });
+        window.addEventListener('key-left', function() { player.location.x -= player.step });
+        window.addEventListener('key-right', function() { player.location.x += player.step });
         animate();
     }
 
@@ -29,7 +29,8 @@ var ray = (function () {
      */
     function animate() {
         canvas.clear();
-        canvas.rectPercent(dude.location.x, dude.location.y, dude.blockSize, dude.blockSize);
+        canvas.rectPercent(player.location.x, player.location.y, player.blockSize, player.blockSize);
+        canvas.castRays(player.location.x, player.location.y);
         window.requestAnimationFrame(animate);
     }
 

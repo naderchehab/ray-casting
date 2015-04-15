@@ -22,12 +22,24 @@ var canvas = (function() {
     }
 
     function rectPercent(x, y, width, height) {
+        var canvasWidth = canvasEl.width/100;
+        var canvasHeight = canvasEl.height/100;
         ctx.beginPath();
         //ctx.fillStyle = '#' + Math.floor(Math.random()*16777215).toString(16);
         ctx.fillStyle = '#25a233';
-        ctx.rect(x*canvasEl.width/100, y*canvasEl.height/100, width*canvasEl.width/100, height*canvasEl.height/100);
+        ctx.rect(x*canvasWidth, y*canvasHeight, width*canvasWidth, height*canvasHeight);
         ctx.fill();
         ctx.closePath();
+    }
+
+    function castRays(x, y) {
+        var canvasWidth = canvasEl.width/100;
+        var canvasHeight = canvasEl.height/100;
+        ctx.beginPath();
+        ctx.moveTo(x*canvasWidth, y*canvasHeight);
+        ctx.strokeStyle = '#25a233';
+        ctx.lineTo(450, 500);
+        ctx.stroke();
     }
 
     return {
@@ -35,6 +47,7 @@ var canvas = (function() {
         , clear: clear
         , resize: resize
         , rectPercent: rectPercent
+        , castRays: castRays
     }
 
 })();
